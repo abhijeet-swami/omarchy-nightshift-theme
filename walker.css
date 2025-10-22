@@ -1,0 +1,58 @@
+@define-color text #eaeaef;
+@define-color base #1a1b1e;
+@define-color border #ffffff55;
+@define-color foreground #eaeaef;
+@define-color background #1a1b1e;
+@define-color hover #2a2b2e;
+@define-color accent #f0f0f0;
+
+window .box-wrapper {
+  background: alpha(@base, 0.2);
+  padding: 8px;
+  color: @text;
+  border: 1px solid @border;
+  margin: 0;
+}
+
+window .search-container {
+  background: transparent;
+  border-radius: 0;
+}
+
+window .placeholder {
+  opacity: 0.4;
+  color: @text;
+}
+
+window .input {
+  color: @accent;
+  padding: 0;
+  font-weight: 300;
+}
+
+child {
+  padding: 0 8px;
+  background: transparent;
+  border-radius: 0;
+  border-left: 2px solid transparent;
+  transition: all 160ms ease-in-out;
+}
+
+child:hover {
+  background: linear-gradient(90deg, alpha(@accent, 0.08), transparent 80%);
+  border-left: 2px solid alpha(@accent, 0.4);
+}
+
+child:selected {
+  background: linear-gradient(90deg, alpha(@accent, 0.2), transparent 100%);
+  border-left: 2px solid @accent;
+}
+
+/* window .normal-icons, */
+/* window .item-box, */
+/* window .large-icons { */
+/*   -gtk-icon-size: 0; */
+/*   min-width: 0; */
+/*   padding: 0; */
+/*   margin: 0; */
+/* } */

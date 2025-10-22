@@ -1,0 +1,134 @@
+@import "../omarchy/current/theme/waybar.css";
+
+@define-color background  @background;
+@define-color background  @waybarBg;
+@define-color foreground  @foreground;
+@define-color accent-red    #FFB180;
+@define-color accent-yellow #FFD166;
+@define-color accent-green  #26DB8D;
+@define-color accent-blue   #7A8CC4;
+
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  margin-top: 6px;
+}
+
+#custom-update,
+#battery,
+#mpris,
+#clock,
+#island1,
+#island2,
+#window {
+  background-color: @background;
+  color: @foreground;
+  border-radius: 4px;
+  margin: 2px 4px;
+  padding: 0px 7px;
+  font-weight: 600;
+}
+
+#bluetooth,
+#network {
+  margin: 2px 6px;
+  padding-right: 8px;
+}
+
+#cpu,
+#memory {
+  padding-right: 6px;
+}
+
+#workspaces {
+  background-color: @background;
+  color: @foreground;
+  border-radius: 4px;
+  margin: 2px 2px;
+}
+
+#workspaces button {
+  color: @foreground;
+  background: transparent;
+  padding: 0px 2px;
+  margin: 0px 2px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+#workspaces button:hover {
+  background-color: alpha(@foreground, 0.15);
+}
+
+#workspaces button.active {
+  color: @foreground;
+}
+
+#workspaces button.urgent {
+  color: @accent-red;
+  background-color: alpha(@accent-red, 0.15);
+}
+
+#group-tray {
+  padding: 1px;
+}
+
+#tray {
+  padding: 0 4px;
+}
+
+#pulseaudio {
+  padding-right: 2px;
+}
+
+#pulseaudio.muted,
+#network.disconnected {
+  color: @accent-red;
+}
+
+#bluetooth.disabled {
+  color: @accent-red;
+}
+
+#battery.charging,
+#battery.plugged {
+  border-color: @accent-green;
+  color: @accent-green;
+}
+
+#battery.warning {
+  border-color: @accent-yellow;
+  color: @accent-yellow;
+}
+
+#battery.critical {
+  background-color: @accent-red;
+  border-color: @accent-red;
+  color: @foreground;
+}
+
+tooltip {
+  background-color: @background;
+  border: 2px solid @foreground;
+  border-radius: 8px;
+  margin: 0;
+  padding: 4px 8px;
+  color: @foreground;
+}
+
+tooltip label {
+  color: @foreground;
+  font-size: 12px;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 0;
+}

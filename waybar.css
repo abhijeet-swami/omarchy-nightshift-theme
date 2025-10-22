@@ -1,0 +1,51 @@
+@define-color background rgba(0, 0, 0, 0);
+@define-color waybarBg rgba(26, 27, 30, 0.2);
+@define-color foreground #eaeaef;
+@define-color surface #636e72;
+@define-color inactive #3a3a3c;
+
+@define-color accent_orange #ffa502;
+@define-color accent_green #7bed9f;
+@define-color accent_blue #3a3a3a;
+@define-color accent_critical #ff5555;
+
+#waybar {
+  background-color: @waybarBg;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @accent_green;
+}
+
+#battery.warning:not(.charging) {
+  color: @accent_orange;
+}
+
+#battery.critical:not(.charging) {
+  color: @accent_critical;
+}
+
+#pulseaudio.muted {
+  color: @accent_critical;
+}
+
+#network.disconnected {
+  color: @accent_critical;
+}
+
+tooltip {
+  background-color: @waybarBg;
+  padding: 8px 12px;
+  border: 1px solid @accent_blue;
+}
+
+tooltip label {
+  color: @foreground;
+}
+
+#tray menu {
+  background-color: @waybarBg;
+  color: @text;
+  border: 1px solid @accent_blue;
+}
