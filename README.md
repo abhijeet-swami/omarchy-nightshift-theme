@@ -5,7 +5,7 @@
 ## Quick Install
 
 ```bash
-omarchy-theme-install https://github.com/abhijeet-swami/omarchy-spectra-green-theme
+omarchy-theme-install https://github.com/abhijeet-swami/omarchy-spectra-theme
 ```
 
 ## Screenshots
