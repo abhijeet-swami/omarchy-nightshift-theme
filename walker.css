@@ -8,20 +8,21 @@
 
 window .box-wrapper {
   background: alpha(@base, 0.2);
-  padding: 8px;
+  padding: 8px 2px;
   color: @text;
   border: 1px solid @border;
   margin: 0;
 }
 
-window .search-container {
+window .search-container,
+window .search {
   background: transparent;
-  border-radius: 0;
-}
-
-window .placeholder {
-  opacity: 0.4;
-  color: @text;
+  color: @foreground;
+  border: 1px solid alpha(@border, 0.5);
+  padding: 8px 12px;
+  margin: 4px 5px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 window .input {
@@ -31,21 +32,50 @@ window .input {
 }
 
 child {
-  padding: 0 8px;
+  padding: 0 2px;
   background: transparent;
   border-radius: 0;
   border-left: 2px solid transparent;
   transition: all 160ms ease-in-out;
 }
 
-child:hover {
-  background: linear-gradient(90deg, alpha(@accent, 0.08), transparent 80%);
-  border-left: 2px solid alpha(@accent, 0.4);
+child:hover .item-box,
+child:selected .item-box {
+  background: linear-gradient(90deg, alpha(@accent, 0.2), transparent 100%);
+  border-left: 2px solid alpha(@accent, 1);
+  transform: translateX(4px);
+  transition:
+    background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-left 150ms ease;
 }
 
-child:selected {
-  background: linear-gradient(90deg, alpha(@accent, 0.2), transparent 100%);
-  border-left: 2px solid @accent;
+child:hover .item-text,
+child:selected .item-text {
+  text-shadow: 0 0 1px alpha(@accent, 0.1);
+}
+
+child,
+.item-box {
+  transition:
+    background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-left 150ms ease,
+    transform 150ms ease;
+}
+
+window .list child {
+  animation: slideIn 180ms ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* window .normal-icons, */
