@@ -1,8 +1,8 @@
 @import "../omarchy/current/theme/waybar.css";
 
-@define-color background  @background;
-@define-color background  @waybarBg;
-@define-color foreground  @foreground;
+@define-color bg            @waybarBg;
+@define-color fg            @foreground;
+@define-color fg-dim        alpha(@foreground, 0.8);
 @define-color accent-red    #FFB180;
 @define-color accent-yellow #FFD166;
 @define-color accent-green  #26DB8D;
@@ -19,19 +19,58 @@ window#waybar {
   margin-top: 6px;
 }
 
+#custom-omarchy,
+#workspaces,
 #custom-update,
 #battery,
-#mpris,
 #clock,
-#island1,
-#island2,
 #window {
-  background-color: @background;
-  color: @foreground;
+  background-color: @bg;
+  color: @fg-dim;
   border-radius: 4px;
   margin: 2px 4px;
-  padding: 0px 7px;
+  padding: 2px 7px;
   font-weight: 600;
+}
+
+#island {
+  background-color: @bg;
+  color: @fg-dim;
+  border-radius: 4px;
+  margin: 2px 4px;
+  padding-right: 5px;
+  padding-left: 2px;
+  font-weight: 600;
+}
+
+#island2 {
+  background-color: @bg;
+  color: @fg-dim;
+  border-radius: 4px;
+  margin: 2px 4px;
+  padding-left: 8px;
+  font-weight: 600;
+}
+
+#island2 #tray-expander {
+  padding-right: 4px;
+}
+
+#island2 #system-drawer #temperature {
+  padding-right: 5px;
+}
+
+#workspaces {
+  padding: 0px;
+  padding-right: 4px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#custom-omarchy {
+  padding-right: 12px;
 }
 
 #bluetooth,
@@ -45,15 +84,8 @@ window#waybar {
   padding-right: 6px;
 }
 
-#workspaces {
-  background-color: @background;
-  color: @foreground;
-  border-radius: 4px;
-  margin: 2px 2px;
-}
-
 #workspaces button {
-  color: @foreground;
+  color: @fg-dim;
   background: transparent;
   padding: 0px 2px;
   margin: 0px 2px;
@@ -61,12 +93,8 @@ window#waybar {
   font-weight: 500;
 }
 
-#workspaces button:hover {
-  background-color: alpha(@foreground, 0.15);
-}
-
 #workspaces button.active {
-  color: @foreground;
+  color: @fg-dim;
 }
 
 #workspaces button.urgent {
@@ -95,6 +123,10 @@ window#waybar {
   color: @accent-red;
 }
 
+#pulseaudio.muted {
+  padding-right: 12px;
+}
+
 #battery.charging,
 #battery.plugged {
   border-color: @accent-green;
@@ -109,25 +141,26 @@ window#waybar {
 #battery.critical {
   background-color: @accent-red;
   border-color: @accent-red;
-  color: @foreground;
+  color: @fg;
 }
 
 tooltip {
-  background-color: @background;
-  border: 2px solid @foreground;
+  background-color: alpha(#1a1b1e, 0.8);
+  border: 2px solid @fg-dim;
   border-radius: 8px;
   margin: 0;
   padding: 4px 8px;
-  color: @foreground;
+  color: @fg-dim;
 }
 
 tooltip label {
-  color: @foreground;
+  color: @fg-dim;
   font-size: 12px;
 }
 
 window#waybar.empty #window {
   background: transparent;
+  color: transparent;
   border: none;
   padding: 0;
   margin-left: 0;
